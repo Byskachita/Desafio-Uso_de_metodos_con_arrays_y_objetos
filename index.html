@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centro Médico Ñuñoa</title>
+    <meta name="author" content="Denisse Rossel">
+    <meta name="description" content="Desafío guiado - Uso básico de arrays y objetos">
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+    <!--    REQUERIMIENTOS-->
+
+    <script>
+        document.write('<div class="section-box">');
+        document.write('<h1>Centro medico ñuñoa</h1>');
+
+        document.write('<div class="sectionbox-list">');
+        let radiologia = [
+        {hora: '11:00', especialista: 'IGNACIO SCHULZ',        paciente: 'FRANCISCA ROJAS', rut: '9878782-1',  prevision: 'FONASA'},
+        {hora: '11:30', especialista: 'FEDERICO SUBERCASEAUX', paciente: 'PAMELA ESTRADA',  rut: '15345241-3', prevision: 'ISAPRE'},
+        {hora: '15:00', especialista: 'FERNANDO WURTHZ',       paciente: 'ARMANDO LUNA',    rut: '16445345-9', prevision: 'ISAPRE'},
+        {hora: '15:30', especialista: 'ANA MARIA GODOY',       paciente: 'MANUEL GODOY',    rut: '17666419-0', prevision: 'FONASA'},
+        {hora: '16:00', especialista: 'PATRICIA SUAZO',        paciente: 'RAMON ULLOA',     rut: '14989389-K', prevision: 'FONASA'},       
+        ];
+
+        let traumatologia = [
+        {hora: '8:00',  especialista:  'MARIA PAZ ALTUZARRAIGNACIO SCHULZ', paciente: 'PAULA SANCHEZ',     rut: '15554774-5',   prevision: 'FONASA'},
+        {hora: '10:00', especialista: 'RAUL ARAYAIGNACIO SCHULZ',           paciente: 'ANGÉLICA NAVAS',    rut: '15444147-9',   prevision: 'ISAPRE'},
+        {hora: '10:30', especialista: 'MARIA ARRIAGADAIGNACIO SCHULZ',      paciente: 'ANA KLAPP',         rut: '17879423-9',   prevision: 'ISAPRE'},
+        {hora: '11:00', especialista: 'ALEJANDRO BADILLAIGNACIO SCHULZ',    paciente: 'FELIPE MARDONES',   rut: '1547423-6',    prevision: 'ISAPRE'},
+        {hora: '11:30', especialista: 'CECILIA BUDNIKIGNACIO SCHULZ',       paciente: 'DIEGO MARRE',       rut: '16554741-K',   prevision: 'FONASA'},
+        {hora: '12:00', especialista: 'ARTURO CAVAGNAROIGNACIO SCHULZ',     paciente: 'CECILIA MENDEZ',    rut: '9747535-8',    prevision: 'ISAPRE'},
+        {hora: '12:30', especialista: 'ANDRES KANACRIIGNACIO SCHULZ',       paciente: 'MARCIAL SUAZO',     rut: '11254785-5',   prevision: 'ISAPRE'},
+        ];
+
+        let dental = [
+        {hora: '8:30',   especialista:  'ANDREA ZUÑIGA',        paciente: 'MARCELA RETAMAL',     rut: '11123425-6',   prevision: 'ISAPRE'},
+        {hora: '11:00',  especialista:  'MARIA PIA ZAÑARTU',    paciente: 'ANGEL MUÑOZ',         rut: '9878789-2',    prevision: 'ISAPRE'},
+        {hora: '11:30',  especialista:  'SCARLETT WITTING',     paciente: 'MARIO KAST',          rut: '7998789-5',    prevision: 'FONASA'},
+        {hora: '13:00',  especialista:  'FRANCISCO VON TEUBER', paciente: 'KARIN FERNANDEZ',     rut: '18887662-K',   prevision: 'FONASA'},
+        {hora: '13:30',  especialista:  'EDUARDO VIÑUELA',      paciente: 'HUGO SANCHEZ',        rut: '17665461-4',   prevision: 'FONASA'},
+        {hora: '14:00',  especialista:  'RAQUEL VILLASECA',     paciente: 'ANA SEPULVEDA',       rut: '14441281-0',   prevision: 'ISAPRE'},
+        ];
+
+        // Función para mostrar el contenido del arreglo en una tabla
+
+    function mostrarTabla(atenciones, nombreLista) {
+        document.write(`<h2>${nombreLista}</h2>`);
+        document.write('<table border="1">');
+        document.write('<tr><th>Hora</th><th>Especialista</th><th>Paciente</th><th>Rut</th><th>Previsión</th></tr>');
+        atenciones.forEach(atencion => {
+            document.write(`<tr><td>${atencion.hora}</td><td>${atencion.especialista}</td><td>${atencion.paciente}</td><td>${atencion.rut}</td><td>${atencion.prevision}</td></tr>`);
+        });
+        document.write('</table>');
+    }
+
+        // 1. Agregar las siguientes horas al arreglo de Traumatología (2 Puntos) utilizare la función push()
+
+    traumatologia.push(
+
+        {hora: '09:00', especialista: 'RENÉ POBLETE', paciente: 'ANA GELLONA', rut: '13123329-7', prevision: 'ISAPRE'},
+        {hora: '09:30', especialista: 'MARIA SOLAR', paciente: 'RAMIRO ANDRADE', rut: '12221451-K', prevision: 'FONASA'},
+        {hora: '10:00', especialista: 'RAUL LOYOLA', paciente: 'CARMEN ISLA', rut: '10112348-3', prevision: 'ISAPRE'},
+        {hora: '10:30', especialista: 'ANTONIO LARENAS', paciente: 'PABLO LOAYZA', rut: '13453234-1', prevision: 'ISAPRE'},
+        {hora: '12:00', especialista: 'MATIAS ARAVENA', paciente: 'SUSANA POBLETE', rut: '14345656-6', prevision: 'FONASA'}
+    );
+
+    // 2. Eliminar el primer y último elemento del arreglo de Radiología (1 Punto). 
+    
+    radiologia.shift(); // Eliminar el primer elemento
+    radiologia.pop();   // Eliminar el último elemento
+
+    mostrarTabla(radiologia, "Radiología");
+    mostrarTabla(traumatologia, "Traumatología");
+    mostrarTabla(dental, "Dental");
+
+    // 3. Imprimir en la página HTML, mediante document.write y/o las funciones que estime conveniente, la lista de consultas médicas de Dental. Sin embargo, debe hacerlo separando por un guión cada dato desplegado y cada fila de información debe estar separada por un párrafo (2 Puntos). 
+
+    document.write('<h3>Consultas Médicas de Dental</h3>');
+    dental.forEach(consulta => {
+        document.write(`<p>${consulta.hora} - ${consulta.especialista} - ${consulta.paciente} - ${consulta.rut} - ${consulta.prevision}</p>`);
+        document.write('<p>&nbsp;</p>'); //Separación entre líneas
+    });
+        
+    // 4. Imprimir un listado total de todos los pacientes que se atendieron en el centro médico. Para esto, deberá unir todos los nombres de pacientes e imprimir uno por cada párrafo (3 Puntos). 
+
+     // Agregar el primer elemento al arreglo de Radiología
+     radiologia.unshift({hora: '11:00', especialista: 'IGNACIO SCHULZ', paciente: 'FRANCISCA ROJAS', rut: '9878782-1', prevision: 'FONASA'});
+
+    // Agregar el último elemento al arreglo de Radiología
+    radiologia.push({hora: '16:00', especialista: 'PATRICIA SUAZO', paciente: 'RAMON ULLOA', rut: '14989389-K', prevision: 'FONASA'});
+
+     // Función para obtener una lista de todos los pacientes
+     function obtenerListaPacientes(consultas) {
+        let pacientes = [];
+        consultas.forEach(consulta => {
+            pacientes.push(consulta.paciente);
+        });
+        return pacientes;
+    }
+
+    // Función para imprimir la lista de pacientes en párrafos
+    function imprimirListaPacientes(pacientes) {
+        pacientes.forEach(paciente => {
+            document.write(`<p>${paciente}</p>`);
+        });
+    }
+
+    // Obtener una lista de todos los pacientes
+    let pacientesRadiologia = obtenerListaPacientes(radiologia);
+    let pacientesTraumatologia = obtenerListaPacientes(traumatologia);
+    let pacientesDental = obtenerListaPacientes(dental);
+
+    // Imprimir la lista de pacientes en párrafos
+    document.write('<h3>Listado de Pacientes</h3>');
+    document.write('<h4>Pacientes de Radiología</h4>');
+    imprimirListaPacientes(pacientesRadiologia);
+    document.write('<h4>Pacientes de Traumatología</h4>');
+    imprimirListaPacientes(pacientesTraumatologia);
+    document.write('<h4>Pacientes de Dental</h4>');
+    imprimirListaPacientes(pacientesDental);
+
+    // 5. Filtrar aquellos pacientes que indican ser de ISAPRE en la lista de consultas médicas de Dental (1 Punto). 
+
+    // Filtrar pacientes de ISAPRE en la lista de consultas médicas de Dental
+    let pacientesIsapre = dental.filter(consulta => consulta.prevision === 'ISAPRE');
+
+    // Función para imprimir la lista de consultas médicas
+    function imprimirConsultas(consultas, nombreLista) {
+        document.write(`<h3>${nombreLista}</h3>`);
+        consultas.forEach(consulta => {
+            document.write(`<p>${consulta.hora} - ${consulta.especialista} - ${consulta.paciente} - ${consulta.rut} - ${consulta.prevision}</p>`);
+        });
+    }
+
+    // Imprimir la lista de pacientes de ISAPRE en Dental
+    imprimirConsultas(pacientesIsapre, "Pacientes con ISAPRE en Dental");
+   
+    // 6. Filtrar aquellos pacientes que indican ser de FONASA en la lista de consultas médicas de Traumatología (1 Punto). 
+
+    // Filtrar pacientes de FONASA en la lista de consultas médicas de Traumatología
+    let pacientesFonasa = traumatologia.filter(consulta => consulta.prevision === 'FONASA');
+
+    // Función para imprimir la lista de consultas médicas
+    function imprimirConsultas(consultas, nombreLista) {
+        document.write(`<h3>${nombreLista}</h3>`);
+        consultas.forEach(consulta => {
+            document.write(`<p>${consulta.hora} - ${consulta.especialista} - ${consulta.paciente} - ${consulta.rut} - ${consulta.prevision}</p>`);
+        });
+    }
+
+     // Imprimir la lista de pacientes de ISAPRE en Dental
+     imprimirConsultas(pacientesFonasa, "Pacientes con FONASA en Traumatología");
+
+    </script>
+    
+</body>
+</html>
